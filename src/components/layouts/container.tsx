@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const Container = ({ children, className }: IProps) => {
-  return <main className={cn('mx-auto lg:max-w-7xl', className)}>{children}</main>;
+  return <main className={cn('mx-auto px-5', className)}>{children}</main>;
 };
 
 export default Container;

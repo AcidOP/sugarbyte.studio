@@ -1,10 +1,12 @@
-import React from 'react';
+import Hero from '@/modules/hero';
+import Works from '@/modules/works';
 
 const LandingPage = () => {
   return (
-    <div className='grid h-[80vh] w-screen place-content-center bg-red-300'>
-      LandingPage
-    </div>
+    <>
+      <Hero />
+      <Works />
+    </>
   );
 };
 
