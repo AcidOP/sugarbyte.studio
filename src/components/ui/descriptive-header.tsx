@@ -4,7 +4,7 @@ interface IProps {
   description: string;
 }
 
-const SectionHeader = ({ count, heading, description }: IProps) => {
+const DescriptiveHeader = ({ count, heading, description }: IProps) => {
   if (heading.endsWith('.')) {
     heading = heading.slice(0, -1);
   }
@@ -18,4 +18,4 @@ const SectionHeader = ({ count, heading, description }: IProps) => {
   );
 };
 
-export default SectionHeader;
+export default DescriptiveHeader;

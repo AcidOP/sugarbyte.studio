@@ -1,13 +1,13 @@
 import Container from '@/components/layouts/container';
 
-import SectionHeader from '@/components/ui/descriptive-header';
+import DescriptiveHeader from '@/components/ui/descriptive-header';
 
 const Box = () => <div className='aspect-video w-full bg-neutral-400 shadow-2xl' />;
 
 const Works = () => {
   return (
     <Container className='my-10 min-h-screen'>
-      <SectionHeader
+      <DescriptiveHeader
         count={7}
         heading='Selected Works'
         description="We've helped businesses across industries achieve their goals. Here
