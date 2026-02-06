@@ -1,19 +1,55 @@
+import Link from 'next/link';
+
 import Container from '@/components/layouts/container';
+import HalfLayout from '@/components/layouts/half-layout';
+
+const navLinks = [
+  {
+    name: 'Home',
+    href: '/',
+  },
+  {
+    name: 'Works',
+    href: '/works',
+  },
+  {
+    name: 'Services',
+    href: '/services',
+  },
+  {
+    name: 'About',
+    href: '/about',
+  },
+  {
+    name: 'Book a Call',
+    href: '/book-a-call',
+  },
+];
 
 const Navbar = () => {
   return (
-    <nav className='flex w-full justify-between bg-white py-7'>
-      <Container className='flex w-full justify-between'>
-        <h1 className='text-2xl font-black'>SugarByte</h1>
+    <nav className='bg-white py-7'>
+      <Container>
+        <HalfLayout className='w-full'>
+          <HalfLayout.LeftChild>
+            <h1 className='font-primary text-2xl font-bold'>SugarByte</h1>
+          </HalfLayout.LeftChild>
 
-        <ul className='flex gap-24 font-medium'>
-          <li>Home</li>
-          <li>Works</li>
-          <li>About</li>
-          <li>Contact</li>
-        </ul>
-
-        <div>Book a call</div>
+          <HalfLayout.RightChild>
+            <ul className='flex items-center justify-between'>
+              {navLinks.map(link => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className='text-lg font-medium text-neutral-600 hover:text-neutral-900'
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </HalfLayout.RightChild>
+        </HalfLayout>
       </Container>
     </nav>
   );

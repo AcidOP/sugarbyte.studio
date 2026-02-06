@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
