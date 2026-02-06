@@ -1,1 +1,12 @@
 @import 'tailwindcss';
+
+@theme inline {
+  --font-primary: var(--font-brico);
+  --font-secondary: var(--font-syne);
+}
+
+@layer base {
+  body {
+    @apply font-secondary;
+  }
+}

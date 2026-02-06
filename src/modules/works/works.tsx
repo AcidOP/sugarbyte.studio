@@ -9,7 +9,7 @@ const Works = () => {
     <Container className='my-10 min-h-screen'>
       <DescriptiveHeader
         count={7}
-        heading='Selected Works'
+        heading='Selected Works.'
         description="We've helped businesses across industries achieve their goals. Here
           are some of our recent projects."
       />
