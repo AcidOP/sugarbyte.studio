@@ -30,7 +30,7 @@ const brico = Bricolage_Grotesque({
 
 type RootLayoutProps = Readonly<{ children: ReactNode }>;
 
-export default function RootLayout({ children }: RootLayoutProps) {
+const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang='en'>
       <body className={cn('antialiased', brico.variable, syne.variable)}>
@@ -39,4 +39,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
