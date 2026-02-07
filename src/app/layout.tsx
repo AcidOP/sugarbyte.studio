@@ -4,6 +4,7 @@ import './globals.css';
 
 import { Bricolage_Grotesque, Syne } from 'next/font/google';
 
+import { ReactLenis } from '@/lib/lenis';
 import { cn } from '@/lib/utils';
 
 import Navbar from '@/components/navbar';
@@ -33,10 +34,12 @@ type RootLayoutProps = Readonly<{ children: ReactNode }>;
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang='en'>
-      <body className={cn('antialiased', brico.variable, syne.variable)}>
-        <Navbar />
-        {children}
-      </body>
+      <ReactLenis root>
+        <body className={cn('antialiased', brico.variable, syne.variable)}>
+          <Navbar />
+          {children}
+        </body>
+      </ReactLenis>
     </html>
   );
 };
