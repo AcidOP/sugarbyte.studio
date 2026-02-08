@@ -28,7 +28,7 @@ const Header = () => {
       {
         scale: 0.75,
         opacity: 0.7,
-        skewY: 2.5,
+        skewY: 2,
         ease: 'power4.out',
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -46,7 +46,7 @@ const Header = () => {
   });
 
   return (
-    <section ref={sectionRef} className='bg-accent mt-20 min-h-screen'>
+    <section ref={sectionRef} className='mt-20 min-h-screen'>
       <div ref={pinRef} className='grid h-screen place-content-center'>
         <h4
           ref={titleRef}
