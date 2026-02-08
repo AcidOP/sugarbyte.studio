@@ -41,7 +41,10 @@ const ShowcaseLayout = ({ works }: ShowcaseLayoutProps) => {
         {
           y: 0,
           opacity: 1,
-          stagger: 0.19,
+          stagger: {
+            each: 0.18,
+            from: 'end',
+          },
           duration: 0.8,
           ease: 'power4.out',
           scrollTrigger: {
