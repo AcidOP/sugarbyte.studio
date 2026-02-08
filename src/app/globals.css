@@ -4,6 +4,7 @@
 @theme inline {
   --font-primary: var(--font-brico);
   --font-secondary: var(--font-syne);
+  --color-accent: #ebf400;
 }
 
 @layer base {
