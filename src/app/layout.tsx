@@ -7,6 +7,7 @@ import { Bricolage_Grotesque, Syne } from 'next/font/google';
 import { ReactLenis } from '@/lib/lenis';
 import { cn } from '@/lib/utils';
 
+import Footer from '@/components/footer';
 import Navbar from '@/components/navbar';
 
 import type { ReactNode } from 'react';
@@ -35,9 +36,16 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang='en'>
       <ReactLenis root>
-        <body className={cn('antialiased', brico.variable, syne.variable)}>
+        <body
+          className={cn(
+            'overflow-x-hidden antialiased',
+            brico.variable,
+            syne.variable,
+          )}
+        >
           <Navbar />
           {children}
+          <Footer />
         </body>
       </ReactLenis>
     </html>

@@ -103,7 +103,7 @@ const ShowReel = () => {
 
   return (
     <section ref={boxRef}>
-      <div className='grid aspect-video h-56 place-content-center bg-stone-300 will-change-transform'>
+      <div className='grid aspect-video h-full max-h-64 place-content-center bg-neutral-700 text-neutral-400 will-change-transform'>
         Video
       </div>
       <p className='mt-3 font-medium text-neutral-600'>SugarByte Showreel</p>
