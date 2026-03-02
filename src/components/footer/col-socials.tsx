@@ -47,7 +47,7 @@ const ListLinks = ({ links }: { links: typeof socials }) => {
               href={social.url}
               target='_blank'
               rel='noopener noreferrer'
-              className='group flex items-center gap-3'
+              className='group flex w-min items-center gap-3'
             >
               <span>
                 <Icon
