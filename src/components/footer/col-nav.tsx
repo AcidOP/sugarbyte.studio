@@ -10,12 +10,13 @@ interface IProps {
 const NavCol = ({ className }: IProps) => {
   return (
     <section className={cn('font-primary text-5xl font-bold', className)}>
-      <ul className='space-y-1.5'>
+      <ul className='flex flex-col space-y-1.5'>
         {navLinks.map(link => (
-          <li key={link.href}>
-            <Link href={link.href} className='transition-all hover:text-black'>
-              {link.name}
-            </Link>
+          <li
+            key={link.href}
+            className='inline-block transition-colors duration-100 hover:text-black'
+          >
+            <Link href={link.href}>{link.name}</Link>
           </li>
         ))}
       </ul>

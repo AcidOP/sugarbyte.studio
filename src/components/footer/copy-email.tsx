@@ -29,7 +29,7 @@ const EmailCTA = ({ email }: Props) => {
 
       <button
         onClick={handleCopy}
-        className='origin-left cursor-pointer text-left text-3xl font-medium underline transition-all hover:scale-[1.015] hover:text-neutral-950'
+        className='origin-left cursor-pointer text-left text-3xl font-medium text-neutral-700 underline transition-all hover:scale-[1.015] hover:text-neutral-950'
       >
         ↘ {email.url}
       </button>

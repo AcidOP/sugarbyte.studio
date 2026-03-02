@@ -26,7 +26,7 @@ const SocialsCol = ({ className }: IProps) => {
   return (
     <section
       className={cn(
-        'font-primary flex flex-col justify-between text-2xl font-medium text-neutral-700',
+        'font-primary flex flex-col justify-between text-2xl font-medium',
         className,
       )}
     >
@@ -53,7 +53,7 @@ const ListLinks = ({ links }: { links: typeof socials }) => {
                 <Icon
                   size={30}
                   className={cn(
-                    'transition-all duration-200 group-hover:scale-110 group-hover:rotate-0',
+                    'text-neutral-700 transition-all duration-200 group-hover:scale-110 group-hover:rotate-0 group-hover:text-neutral-900',
                     index % 2 === 0 ? 'rotate-3' : '-rotate-3',
                   )}
                 />
