@@ -13,7 +13,7 @@ const NavCol = ({ className }: IProps) => {
       <ul className='space-y-1.5'>
         {navLinks.map(link => (
           <li key={link.href}>
-            <Link href={link.href} className='transition-all hover:text-neutral-900'>
+            <Link href={link.href} className='transition-all hover:text-black'>
               {link.name}
             </Link>
           </li>

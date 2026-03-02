@@ -2,12 +2,13 @@ import NavCol from './col-nav';
 import SocialsCol from './col-socials';
 
 import HalfLayout from '@/components/layouts/half-layout';
+import ShowReel from '@/components/showreel';
 
 const Row1 = () => {
   return (
     <HalfLayout className='h-min pt-24'>
       <HalfLayout.LeftChild>
-        <div />
+        <ShowReel />
       </HalfLayout.LeftChild>
 
       <HalfLayout.RightChild>

@@ -1,9 +1,8 @@
 import Link from 'next/link';
 
-import ShowReel from './components/showreel';
-
 import Container from '@/components/layouts/container';
 import HalfLayout from '@/components/layouts/half-layout';
+import ShowReel from '@/components/showreel';
 
 import { ScreenFitText } from '@/components/ui/screen-fit-text';
 
