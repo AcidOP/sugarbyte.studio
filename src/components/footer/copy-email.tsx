@@ -18,7 +18,7 @@ const EmailCTA = ({ email }: Props) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(email.url);
+    await navigator.clipboard.writeText(email.url.toLocaleLowerCase());
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };
