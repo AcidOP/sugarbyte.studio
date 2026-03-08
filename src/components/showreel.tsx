@@ -38,6 +38,17 @@ const ShowReel = ({ position = 'left' }: ShowReelProps) => {
     const box = boxRef.current;
     if (!box) return;
 
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          gsap.set(box, { x: 0, y: 0 });
+        }
+      },
+      { threshold: 0.1 },
+    );
+
+    observer.observe(box);
+
     gsap.set(box, { force3D: true });
 
     const xTo = gsap.quickTo(box, 'x', {
@@ -54,25 +65,25 @@ const ShowReel = ({ position = 'left' }: ShowReelProps) => {
       Math.min(Math.max(value, min), max);
 
     const calculateAnimationValues = (e: MouseEvent) => {
-      const percentX = (e.clientX / window.innerWidth - 0.5) * 2;
-      const percentY = (e.clientY / window.innerHeight - 0.5) * 2;
-
-      let x =
-        percentX * ANIMATION_CONFIG.X_SOFTENING * ANIMATION_CONFIG.X_MULTIPLIER;
-
-      let y =
-        percentY * ANIMATION_CONFIG.Y_SOFTENING * ANIMATION_CONFIG.Y_MULTIPLIER;
-
       const rect = box.getBoundingClientRect();
 
-      const maxRight = window.innerWidth - rect.right;
-      const maxLeft = -rect.left;
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
 
-      const maxBottom = window.innerHeight - rect.bottom;
-      const maxTop = -rect.top;
+      const dx = e.clientX - centerX;
+      const dy = e.clientY - centerY;
 
-      x = clamp(x, maxLeft, maxRight);
-      y = clamp(y, maxTop, maxBottom);
+      const percentX = dx / rect.width;
+      const percentY = dy / rect.height;
+
+      let x = percentX * ANIMATION_CONFIG.X_MULTIPLIER;
+      let y = percentY * ANIMATION_CONFIG.Y_MULTIPLIER;
+
+      const maxX = 40;
+      const maxY = 20;
+
+      x = Math.max(Math.min(x, maxX), -maxX);
+      y = Math.max(Math.min(y, maxY), -maxY);
 
       return { x, y };
     };
@@ -118,16 +129,22 @@ const ShowReel = ({ position = 'left' }: ShowReelProps) => {
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
+
+      observer.disconnect();
     };
   }, []);
 
   return (
-    <section ref={boxRef} className={`w-full max-w-md ${positionStyles[position]}`}>
-      <div className='grid aspect-video h-full max-h-64 place-content-center bg-neutral-700 text-neutral-400 will-change-transform'>
-        Video
-      </div>
+    <section className={`w-full max-w-2xl ${positionStyles[position]}`}>
+      <div ref={boxRef}>
+        <div className='grid aspect-video w-full place-content-center bg-neutral-700 text-neutral-400 will-change-transform'>
+          Video
+        </div>
 
-      <p className='mt-3 font-medium text-neutral-600'>SugarByte Showreel</p>
+        <p className='mt-3 text-xl font-medium text-neutral-600'>
+          SugarByte Showreel
+        </p>
+      </div>
     </section>
   );
 };
