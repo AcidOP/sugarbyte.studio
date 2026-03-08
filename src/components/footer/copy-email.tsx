@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+import { ScreenFitText } from '../ui/screen-fit-text';
+
 type Social = {
   id: string;
   name: string;
@@ -22,7 +24,7 @@ const EmailCTA = ({ email }: Props) => {
   };
 
   return (
-    <section className='flex min-w-max flex-col -space-y-1.5'>
+    <section className='flex w-full flex-col -space-y-1.5'>
       <span className='text-base text-neutral-600'>
         {copied ? 'Copied!' : '(Click to copy!)'}
       </span>
@@ -31,7 +33,7 @@ const EmailCTA = ({ email }: Props) => {
         onClick={handleCopy}
         className='origin-left cursor-pointer text-left text-3xl font-medium text-neutral-700 underline transition-all hover:scale-[1.015] hover:text-neutral-950'
       >
-        ↘ {email.url}
+        <ScreenFitText text={`↘ ${email.url}`} />
       </button>
     </section>
   );

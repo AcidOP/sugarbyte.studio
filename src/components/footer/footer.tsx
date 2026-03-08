@@ -6,11 +6,11 @@ const Footer = () => {
   return (
     <footer className='bg-accent'>
       <div
-        className='relative h-[650px]'
+        className='relative h-[750px]'
         style={{ clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)' }}
       >
-        <div className='relative -top-[100vh] h-[calc(100vh+650px)]'>
-          <div className='sticky top-[calc(100vh-650px)] h-[650px]'>
+        <div className='relative -top-[100vh] h-[calc(100vh+750px)]'>
+          <div className='sticky top-[calc(100vh-750px)] h-[750px]'>
             <Row1 />
             <Row2 />
           </div>
