@@ -8,42 +8,49 @@ import { ScreenFitText } from '@/components/ui/screen-fit-text';
 
 const Hero = () => {
   return (
-    <Container className='mt-12'>
-      <HalfLayout className='min-h-[75vh] w-full'>
+    <Container>
+      <HalfLayout className='mt-12 min-h-[65vh] w-full'>
         <HalfLayout.LeftChild className='flex flex-col justify-between'>
-          <ShowReel />
-
-          <h2 className='max-w-3xl text-4xl font-medium text-neutral-500'>
-            We design and build conversion optimized websites that help brands launch
-            faster and turn attention into revenue.
-          </h2>
-        </HalfLayout.LeftChild>
-
-        <HalfLayout.RightChild className='flex flex-col justify-between'>
           <h1>
             <ScreenFitText
               text='Websites that'
-              className='font-primary leading-tight'
+              className='font-primary text-neutral-700'
             />
             <ScreenFitText
               text='Increase your'
-              className='font-primary leading-tight'
+              className='font-primary text-neutral-800'
             />
             <ScreenFitText text='revenue' className='font-primary leading-tight' />
           </h1>
 
-          <section className='flex justify-between'>
-            <Link
-              href='/#works'
-              className='font-medium underline underline-offset-8'
-            >
-              See Our Works →
+          <h2 className='max-w-3xl text-4xl font-medium text-neutral-500'>
+            We design{' '}
+            <span className='text-neutral-700'>high-conversion websites</span>{' '}
+            engineered for lead generation, product sales, and creator monetization.
+          </h2>
+        </HalfLayout.LeftChild>
+
+        <HalfLayout.RightChild className='flex flex-col justify-between'>
+          <ShowReel position='right' />
+
+          <ul>
+            <li>
+              
+            </li>
+          </ul>
+
+          {/* <section className='flex justify-between text-xl lg:text-2xl'>
+            <Link href='/about' className='font-medium underline underline-offset-8'>
+              Book a Strategy Call &rarr;
             </Link>
 
-            <Link href='/about' className='font-medium underline underline-offset-8'>
-              About Us →
+            <Link
+              href='/#works'
+              className='font-medium text-neutral-700 underline underline-offset-8'
+            >
+              View our Work &rarr;
             </Link>
-          </section>
+          </section> */}
         </HalfLayout.RightChild>
       </HalfLayout>
     </Container>
