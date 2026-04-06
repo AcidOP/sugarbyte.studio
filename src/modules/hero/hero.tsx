@@ -34,9 +34,7 @@ const Hero = () => {
           <ShowReel position='right' />
 
           <ul>
-            <li>
-              
-            </li>
+            <li></li>
           </ul>
 
           {/* <section className='flex justify-between text-xl lg:text-2xl'>
