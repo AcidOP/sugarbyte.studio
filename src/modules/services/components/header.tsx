@@ -21,8 +21,8 @@ const ServiceHeader = () => {
           />
 
           <p className='mt-12 text-xl font-medium text-neutral-300'>
-            Whether you're building authority or optimizing an established business,
-            our packages are structured around growth, trust, and{' '}
+            Whether you&apos;re building authority or optimizing an established
+            business, our packages are structured around growth, trust, and{' '}
             <span className='decoration-accent/15 underline decoration-1 underline-offset-8'>
               long-term revenue
             </span>
