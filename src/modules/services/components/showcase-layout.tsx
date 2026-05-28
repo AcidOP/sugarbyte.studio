@@ -5,7 +5,7 @@ import HalfLayout from '@/components/layouts/half-layout';
 
 const ServiceLayout = () => {
   return (
-    <HalfLayout className='gap-12'>
+    <HalfLayout className='gap-7.5'>
       <HalfLayout.LeftChild>
         <section className='ml-auto flex origin-right flex-col gap-9'>
           {packages.map((pkg, idx) => (
@@ -15,7 +15,7 @@ const ServiceLayout = () => {
       </HalfLayout.LeftChild>
 
       <HalfLayout.RightChild>
-        <div className='sticky top-32'>
+        <div className='sticky top-20'>
           <ServiceCard {...recommendedPackage} recommended />
         </div>
       </HalfLayout.RightChild>
