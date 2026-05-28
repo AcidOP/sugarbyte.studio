@@ -1,14 +1,13 @@
-import Header from './components/header';
-import ServicesInfo from './components/services-info';
-import { offers } from './offers';
+import ServiceHeader from './components/header';
+import ServiceLayout from './components/showcase-layout';
 
 import Container from '@/components/layouts/container';
 
 const Services = () => {
   return (
-    <Container className='my-24 min-h-screen'>
-      <Header />
-      <ServicesInfo offers={offers} />
+    <Container className='min-h-screen bg-[#37353E] py-16 pb-32'>
+      <ServiceHeader />
+      <ServiceLayout />
     </Container>
   );
 };

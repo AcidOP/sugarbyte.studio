@@ -2,70 +2,98 @@
 
 import { useEffect, useRef } from 'react';
 
-import Link from 'next/link';
-
 import { cn } from '@/lib/utils';
 
 interface IProps {
   text: string;
-  href?: string;
   className?: string;
 }
 
-export const ScreenFitText = ({ text, href, className }: IProps) => {
+export const ScreenFitText = ({ text, className }: IProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const textRef = useRef<HTMLElement | null>(null);
+  const textRef = useRef<HTMLSpanElement | null>(null);
+  const frame = useRef<number | null>(null);
 
   const resizeText = () => {
     const container = containerRef.current;
-    const text = textRef.current;
+    const textEl = textRef.current;
 
-    if (!container || !text) return;
+    if (!container || !textEl) return;
 
-    const containerWidth = container.offsetWidth;
-    let min = 1;
-    let max = 2500;
+    const containerWidth =
+      container.clientWidth -
+      parseFloat(getComputedStyle(container).paddingLeft) -
+      parseFloat(getComputedStyle(container).paddingRight);
+
+    let min = 4;
+    let max = containerWidth; // tighter upper bound
 
     while (min <= max) {
-      const mid = Math.floor((min + max) / 2);
-      text.style.fontSize = mid + 'px';
+      const mid = (min + max) >> 1;
 
-      if (text.offsetWidth <= containerWidth) {
+      textEl.style.fontSize = mid + 'px';
+
+      const width = textEl.offsetWidth;
+
+      if (width <= containerWidth) {
         min = mid + 1;
       } else {
         max = mid - 1;
       }
     }
 
-    text.style.fontSize = max + 'px';
+    const finalSize = max;
+
+    textEl.style.fontSize = finalSize + 'px';
+
+    /* dynamic line-height */
+    const lineHeightRatio = 0.88;
+    textEl.style.lineHeight = finalSize * lineHeightRatio + 'px';
+
+    /* optical letter spacing for large typography */
+    const tracking = Math.max(-0.02 * finalSize, -8);
+    textEl.style.letterSpacing = tracking + 'px';
+  };
+
+  const scheduleResize = () => {
+    if (frame.current) cancelAnimationFrame(frame.current);
+    frame.current = requestAnimationFrame(resizeText);
   };
 
   useEffect(() => {
-    resizeText();
-    window.addEventListener('resize', resizeText);
+    scheduleResize();
+
+    const observer = new ResizeObserver(scheduleResize);
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
     return () => {
-      window.removeEventListener('resize', resizeText);
+      observer.disconnect();
+      if (frame.current) cancelAnimationFrame(frame.current);
     };
   }, []);
 
   return (
     <div
+      ref={containerRef}
       className={cn(
-        'relative flex h-auto w-full items-center overflow-hidden transition-all duration-200',
+        'relative flex w-full transform-gpu items-center overflow-hidden',
+        'select-none',
         className,
       )}
-      ref={containerRef}
     >
       <span
-        className={cn(
-          'relative bottom-0 left-0 mx-auto text-center text-5xl font-extrabold text-nowrap whitespace-nowrap uppercase lg:text-[12rem]',
-          // Hover animation for links
-          href &&
-            'after:absolute after:-bottom-2 after:left-0 after:h-1.75 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-violet-600 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100',
-        )}
         ref={textRef}
+        className={cn(
+          'mx-auto transform-gpu text-center font-black whitespace-nowrap uppercase',
+          'will-change-[font-size]',
+          '[font-kerning:normal]',
+          '[font-feature-settings:"kern"]',
+        )}
       >
-        {href ? <Link href={href}>{text}</Link> : text}
+        {text}
       </span>
     </div>
   );

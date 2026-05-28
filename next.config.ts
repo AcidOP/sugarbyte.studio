@@ -5,7 +5,10 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   experimental: {
     turbopackMinify: true,
+    turbopackFileSystemCacheForDev: true,
+    turbopackFileSystemCacheForBuild: true,
   },
+  reactStrictMode: true,
   compress: true,
   productionBrowserSourceMaps: true,
 };
