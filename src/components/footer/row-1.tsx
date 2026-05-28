@@ -8,7 +8,7 @@ import ShowReel from '@/components/showreel';
 const Row1 = () => {
   return (
     <Container>
-      <HalfLayout className='h-min pt-24'>
+      <HalfLayout className='h-min pt-36'>
         <HalfLayout.LeftChild>
           <ShowReel />
         </HalfLayout.LeftChild>

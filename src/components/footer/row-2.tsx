@@ -4,7 +4,7 @@ import HalfLayout from '@/components/layouts/half-layout';
 
 const Row2 = () => {
   return (
-    <HalfLayout className='pt-20'>
+    <HalfLayout>
       <HalfLayout.LeftChild>
         <div />
       </HalfLayout.LeftChild>
