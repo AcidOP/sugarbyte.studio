@@ -5,11 +5,11 @@ export const navLinks = [
   },
   {
     name: 'Works',
-    href: '/works',
+    href: '/#works',
   },
   {
     name: 'Services',
-    href: '/services',
+    href: '/#services',
   },
   {
     name: 'About',

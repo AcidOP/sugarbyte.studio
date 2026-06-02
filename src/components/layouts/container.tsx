@@ -1,8 +1,8 @@
 import { cn } from '@/lib/utils';
 
-import type { ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
-interface IProps {
+interface IProps extends HTMLAttributes<HTMLElement> {
   children: ReactNode;
   className?: string;
 }

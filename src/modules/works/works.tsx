@@ -46,7 +46,7 @@ const Works = () => {
   );
 
   return (
-    <section ref={containerRef} className='bg-accent'>
+    <section ref={containerRef} className='bg-accent' id='works'>
       <Header />
       <Showcase />
     </section>
