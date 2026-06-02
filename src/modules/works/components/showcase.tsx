@@ -6,7 +6,7 @@ import Container from '@/components/layouts/container';
 
 const Showcase = () => {
   return (
-    <Container className='pb-20'>
+    <Container>
       <ShowcaseLayout works={works} />
     </Container>
   );

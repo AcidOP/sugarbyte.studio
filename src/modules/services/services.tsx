@@ -16,7 +16,6 @@ const Services = () => {
 
   useGSAP(
     () => {
-      // Initial state (light yellow)
       gsap.set(containerRef.current, {
         backgroundColor: '#37353E',
       });

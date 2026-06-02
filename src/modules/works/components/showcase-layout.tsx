@@ -64,7 +64,7 @@ const ShowcaseLayout = ({ works }: ShowcaseLayoutProps) => {
           ref={el => {
             if (el) rowsRef.current[rowIndex] = el;
           }}
-          className='mb-12 grid gap-8'
+          className='mt-12 grid gap-8'
         >
           <HalfLayout className='gap-5'>
             <HalfLayout.LeftChild className='grid grid-cols-2 gap-5'>

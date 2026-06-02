@@ -4,7 +4,7 @@ import { ScreenFitText } from '@/components/ui/screen-fit-text';
 
 const ServiceHeader = () => {
   return (
-    <div className='pb-36'>
+    <div className='py-24'>
       <HalfLayout>
         <HalfLayout.LeftChild>
           <div />
@@ -20,7 +20,7 @@ const ServiceHeader = () => {
             className='font-primary font-black text-neutral-100'
           />
 
-          <p className='mt-12 text-xl font-medium text-neutral-300'>
+          <p className='mt-7.5 text-xl font-medium text-neutral-400'>
             Whether you&apos;re building authority or optimizing an established
             business, our packages are structured around growth, trust, and{' '}
             <span className='decoration-accent/15 underline decoration-1 underline-offset-8'>
