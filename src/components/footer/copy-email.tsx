@@ -25,13 +25,13 @@ const EmailCTA = ({ email }: Props) => {
 
   return (
     <section className='flex w-full flex-col space-y-1'>
-      <span className='text-base text-neutral-600'>
+      <span className='text-base font-medium text-neutral-600'>
         {copied ? 'Copied!' : '( Click to copy! )'}
       </span>
 
       <button
         onClick={() => void handleCopy()}
-        className='origin-left cursor-pointer text-left text-3xl font-medium text-neutral-700 underline transition-all hover:scale-[1.015] hover:text-neutral-950'
+        className='origin-left cursor-pointer text-left text-3xl font-medium text-neutral-700 transition-all hover:scale-[1.015] hover:text-black'
       >
         <ScreenFitText text={`↘ ${email.url}`} />
       </button>

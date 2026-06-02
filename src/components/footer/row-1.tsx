@@ -14,7 +14,7 @@ const Row1 = () => {
         </HalfLayout.LeftChild>
 
         <HalfLayout.RightChild>
-          <div className='grid grid-cols-2 gap-16 text-neutral-800'>
+          <div className='grid grid-cols-2 gap-16 text-neutral-900'>
             <NavCol className='w-full' />
             <SocialsCol className='w-full' />
           </div>

@@ -14,7 +14,7 @@ const NavCol = ({ className }: IProps) => {
         {navLinks.map(link => (
           <li
             key={link.href}
-            className='inline-block transition-colors duration-100 hover:text-black'
+            className='inline-block transition-all duration-100 not-hover:rotate-1 hover:rotate-0 hover:text-black'
           >
             <Link href={link.href}>{link.name}</Link>
           </li>

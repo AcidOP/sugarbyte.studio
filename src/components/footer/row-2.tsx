@@ -4,13 +4,13 @@ import HalfLayout from '@/components/layouts/half-layout';
 
 const Row2 = () => {
   return (
-    <HalfLayout>
+    <HalfLayout className='mt-24'>
       <HalfLayout.LeftChild>
         <div />
       </HalfLayout.LeftChild>
 
       <HalfLayout.RightChild>
-        <div className='grid grid-cols-2 gap-16 text-neutral-700'>
+        <div className='grid grid-cols-2 text-neutral-700'>
           <LegalLinks />
           <Trademark />
         </div>
