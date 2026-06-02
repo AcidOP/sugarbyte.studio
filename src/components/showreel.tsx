@@ -5,12 +5,13 @@ import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 
 import { gsap } from '@/lib/gsap';
+import { cn } from '@/lib/utils';
 
 const ANIMATION_CONFIG = {
   X_SOFTENING: 0.9,
-  Y_SOFTENING: 0.5,
+  Y_SOFTENING: 0.9,
   X_MULTIPLIER: 60,
-  Y_MULTIPLIER: 10,
+  Y_MULTIPLIER: 5,
   X_DURATION: 1,
   Y_DURATION: 1,
   RESET_DURATION: 1.2,
@@ -61,9 +62,6 @@ const ShowReel = ({ position = 'left' }: ShowReelProps) => {
       ease: ANIMATION_CONFIG.EASE_ANIMATE,
     });
 
-    const clamp = (value: number, min: number, max: number) =>
-      Math.min(Math.max(value, min), max);
-
     const calculateAnimationValues = (e: MouseEvent) => {
       const rect = box.getBoundingClientRect();
 
@@ -79,11 +77,11 @@ const ShowReel = ({ position = 'left' }: ShowReelProps) => {
       let x = percentX * ANIMATION_CONFIG.X_MULTIPLIER;
       let y = percentY * ANIMATION_CONFIG.Y_MULTIPLIER;
 
-      const maxX = 40;
-      const maxY = 20;
+      const makichuX = 40;
+      const makichuY = 20;
 
-      x = Math.max(Math.min(x, maxX), -maxX);
-      y = Math.max(Math.min(y, maxY), -maxY);
+      x = Math.max(Math.min(x, makichuX), -1 * makichuX);
+      y = Math.max(Math.min(y, makichuY), -1 * makichuY);
 
       return { x, y };
     };
@@ -135,13 +133,20 @@ const ShowReel = ({ position = 'left' }: ShowReelProps) => {
   }, []);
 
   return (
-    <section className={`w-full max-w-2xl ${positionStyles[position]}`}>
+    <section
+      className={`w-3xl:max-w-xl w-full max-w-md ${positionStyles[position]}`}
+    >
       <div ref={boxRef}>
-        <div className='grid aspect-video w-full place-content-center bg-neutral-700 text-neutral-400 will-change-transform'>
+        <div className='w-3xl:max-w-xl grid aspect-video w-full max-w-md place-content-center bg-neutral-700 text-neutral-400 will-change-transform'>
           Video
         </div>
 
-        <p className='mt-3 text-xl font-medium text-neutral-600'>
+        <p
+          className={cn(
+            'font-primary mt-1.5 text-base text-neutral-400',
+            positionStyles[position],
+          )}
+        >
           SugarByte Showreel
         </p>
       </div>

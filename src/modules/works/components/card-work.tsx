@@ -35,7 +35,7 @@ const WorkCard = ({ work }: { work: Work }) => {
       onMouseLeave={handleMouseLeave}
       className='will-change-transform'
     >
-      <div className='font-primary mb-2 flex justify-between text-xl font-medium text-neutral-300 uppercase'>
+      <div className='font-primary flex justify-between text-sm font-medium text-neutral-300 uppercase'>
         <h5>{work.name}</h5>
         <time>{work.date}</time>
       </div>

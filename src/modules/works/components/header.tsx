@@ -26,7 +26,7 @@ const Header = () => {
       titleRef.current,
       { scale: 1.5, opacity: 1, skewY: 0 },
       {
-        scale: 0.75,
+        scale: 0.95,
         opacity: 0.7,
         skewY: 2,
         ease: 'power4.out',
@@ -45,14 +45,16 @@ const Header = () => {
     });
   });
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <section ref={sectionRef} className='mt-20 min-h-screen'>
       <div ref={pinRef} className='grid h-screen place-content-center'>
         <h4
           ref={titleRef}
-          className='font-primary text-center text-9xl leading-[0.8] font-black'
+          className='font-primary text-center text-8xl leading-[0.8] font-black'
         >
-          SELECTED <br /> WORKS <br /> (2024—2026)
+          SELECTED <br /> WORKS <br /> (2024—{currentYear})
         </h4>
       </div>
     </section>
