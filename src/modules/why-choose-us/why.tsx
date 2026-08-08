@@ -5,7 +5,7 @@ import Container from '@/components/layouts/container';
 
 const WhyChooseUs = () => {
   return (
-    <div className='min-h-screen py-48'>
+    <div className='min-h-screen'>
       <Container className='flex flex-col space-y-24'>
         <Header />
         <Testimonials />

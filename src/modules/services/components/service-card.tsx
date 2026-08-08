@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils';
 
 import type { TServicePackage } from './service-data';
 
-interface IProps extends TServicePackage {
+interface ServiceCardProps extends TServicePackage {
   index?: number;
   className?: string;
 }
@@ -10,141 +10,121 @@ interface IProps extends TServicePackage {
 const ServiceCard = ({
   index = 0,
   className,
-  id,
   name,
-  tagline,
   cta,
-  deliverables,
-  idealFor,
-  outcomes,
+  deliverables = [],
   positioning,
   pricing: pricingRange,
-  process,
   recommended,
-  support,
-  targetClients,
-}: IProps) => {
+}: ServiceCardProps) => {
   return (
-    // Card Container
     <div
       className={cn(
-        `relative flex h-157 w-150 flex-col overflow-hidden px-10 py-8 transition-all duration-300 hover:scale-[0.995]`,
-        !recommended && `bg-neutral-200 text-neutral-900`,
-        recommended &&
-          `border-accent/15 border bg-[linear-gradient(to_bottom_right,#080808_0%,#101010_72%,#1a1f00_100%)] text-white`,
-
+        'relative flex min-h-152 w-full max-w-lg flex-col justify-between overflow-hidden px-6 py-8 transition-all duration-300 hover:scale-[0.995] sm:px-10',
+        recommended
+          ? 'border-accent/15 border bg-[linear-gradient(to_bottom_right,#080808_0%,#101010_72%,#1a1f00_100%)] text-white'
+          : 'bg-neutral-200 text-neutral-900',
         className,
       )}
     >
-      {/* Recommended Badge */}
-      {recommended && (
-        <div className='bg-accent/8 text-accent font-primary absolute top-6 right-6 rounded-full px-3 py-1 text-xs font-semibold uppercase'>
-          Recommended
-        </div>
-      )}
-
-      {/* Header */}
-      {/* <div className='space-y-4'> */}
-      <h5
-        className={cn(
-          'font-primary text-4xl font-extrabold tracking-tight',
-          recommended && 'text-5xl font-black text-white',
-        )}
-      >
-        {name} Plan.
-      </h5>
-
-      {/* Package Tagline */}
-      {/* {tagline && (
-          <p
-            className={cn(
-              'text-base leading-relaxed font-medium text-neutral-600',
-              recommended && 'text-neutral-300',
-            )}
-          >
-            {tagline}
-          </p>
-        )} */}
-      {/* </div> */}
-
-      {/* Pricing */}
-      <div className='mt-7 space-y-7'>
-        {/* Package and client benefits points */}
-        {positioning && (
-          <p
-            className={cn(
-              'text-base leading-relaxed font-medium text-neutral-600',
-              recommended && 'text-neutral-300',
-            )}
-          >
-            {positioning}
-          </p>
+      <div>
+        {/* Recommended Badge */}
+        {recommended && (
+          <span className='font-primary bg-accent/10 text-accent absolute top-6 right-6 rounded-full px-3 py-1 text-xs font-semibold tracking-wider uppercase'>
+            Recommended
+          </span>
         )}
 
-        <p
+        {/* Header */}
+        <h3
           className={cn(
-            'font-primary text-5xl font-black tracking-tight text-neutral-600',
-            recommended && 'text-neutral-300',
-            index == 1 && 'text-3xl',
+            'font-primary text-3xl font-extrabold tracking-tight sm:text-4xl',
+            recommended && 'text-4xl font-black text-white sm:text-5xl',
           )}
         >
-          {pricingRange}{' '}
-          {index != 1 && (
-            <span
+          {name} Plan.
+        </h3>
+
+        {/* Pricing & Positioning */}
+        <div className='mt-6 space-y-4'>
+          {positioning && (
+            <p
               className={cn(
-                'text-lg font-medium text-neutral-500',
-                recommended && 'text-neutral-400',
+                'text-base leading-relaxed font-medium text-neutral-600',
+                recommended && 'text-neutral-300',
               )}
             >
-              onwards.
-            </span>
+              {positioning}
+            </p>
           )}
-        </p>
-      </div>
 
-      {/* Divider */}
-      <div
-        className={cn(
-          'mt-7 mb-10 h-px w-full bg-neutral-400/50',
-          recommended && 'bg-white/10',
-        )}
-      />
-
-      {/* Package Benefits */}
-      <div className='flex flex-1 flex-col'>
-        <div className='space-y-3'>
-          {deliverables.slice(0, 5).map((item, i) => (
-            <div key={i} className='flex items-center gap-3'>
-              <div
+          <p
+            className={cn(
+              'font-primary text-4xl font-black tracking-tight text-neutral-900 sm:text-5xl',
+              recommended && 'text-white',
+              index === 1 && 'text-2xl sm:text-3xl',
+            )}
+          >
+            {pricingRange}{' '}
+            {index !== 1 && (
+              <span
                 className={cn(
-                  'h-2 w-2 rounded-full bg-neutral-800',
-                  recommended && 'bg-accent',
-                )}
-              />
-
-              <p
-                className={cn(
-                  'text-lg text-neutral-800',
-                  recommended && 'text-neutral-300',
+                  'text-lg font-medium text-neutral-500',
+                  recommended && 'text-neutral-400',
                 )}
               >
-                {item}
-              </p>
-            </div>
-          ))}
+                onwards.
+              </span>
+            )}
+          </p>
         </div>
 
-        {/* CTA */}
-        <button
+        {/* Divider */}
+        <hr
           className={cn(
-            `font-primary mt-auto cursor-pointer rounded-full px-5 py-4 text-xl font-black transition-all duration-300`,
-            !recommended && `bg-neutral-900 text-white hover:bg-neutral-800`,
-            recommended && `bg-accent/85 hover:bg-accent text-black`,
+            'my-7 h-px w-full border-none bg-neutral-400/50',
+            recommended && 'bg-white/10',
           )}
-        >
-          {cta || 'Get Started'}
-        </button>
+        />
+
+        {/* Deliverables List */}
+        {deliverables.length > 0 && (
+          <ul className='space-y-3'>
+            {deliverables.slice(0, 5).map(item => (
+              <li key={item} className='flex items-center gap-3'>
+                <span
+                  className={cn(
+                    'h-2 w-2 shrink-0 rounded-full bg-neutral-800',
+                    recommended && 'bg-accent',
+                  )}
+                  aria-hidden='true'
+                />
+                <span
+                  className={cn(
+                    'text-lg font-medium text-neutral-800',
+                    recommended && 'text-neutral-300',
+                  )}
+                >
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
+
+      {/* CTA Button */}
+      <button
+        type='button'
+        className={cn(
+          'font-primary mt-8 w-full cursor-pointer rounded-full px-5 py-4 text-xl font-black transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2',
+          recommended
+            ? 'bg-accent/85 hover:bg-accent focus-visible:outline-accent text-black'
+            : 'bg-neutral-900 text-white hover:bg-neutral-800 focus-visible:outline-neutral-900',
+        )}
+      >
+        {cta || 'Get Started'}
+      </button>
     </div>
   );
 };

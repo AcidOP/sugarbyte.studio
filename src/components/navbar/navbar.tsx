@@ -13,7 +13,7 @@ const Navbar = () => {
             <h1 className='font-primary text-2xl font-bold'>SugarByte</h1>
           </HalfLayout.LeftChild>
 
-          <HalfLayout.RightChild>
+          <HalfLayout.RightChild className='hidden lg:block'>
             <ul className='flex items-center justify-between'>
               {navLinks.map(link => (
                 <li key={link.name}>

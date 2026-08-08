@@ -44,7 +44,7 @@ const Services = () => {
   );
 
   return (
-    <div id='services' className='scroll-mt-24' ref={containerRef}>
+    <div id='services' ref={containerRef}>
       <Container className='min-h-screen py-16 pb-32'>
         <ServiceHeader />
         <ServiceLayout />
