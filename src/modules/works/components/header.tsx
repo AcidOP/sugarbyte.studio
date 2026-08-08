@@ -52,7 +52,7 @@ const Header = () => {
       <div ref={pinRef} className='grid h-screen place-content-center'>
         <h4
           ref={titleRef}
-          className='font-primary text-center text-8xl leading-[0.8] font-black'
+          className='font-primary text-center text-4xl leading-[0.8] font-black lg:text-8xl'
         >
           SELECTED <br /> WORKS <br /> (2024—{currentYear})
         </h4>
