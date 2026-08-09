@@ -7,7 +7,7 @@ import { ScreenFitText } from '@/components/ui/screen-fit-text';
 const Hero = () => {
   return (
     <Container>
-      <HalfLayout className='mt-12 min-h-[65vh] w-full' mobileReverse>
+      <HalfLayout className='mt-12 w-full lg:min-h-[65vh]' mobileReverse>
         <HalfLayout.LeftChild className='flex flex-col justify-between'>
           <h1>
             <ScreenFitText
@@ -21,7 +21,7 @@ const Hero = () => {
             <ScreenFitText text='revenue' className='font-primary leading-tight' />
           </h1>
 
-          <h2 className='mt-3.5 max-w-3xl text-lg leading-tight font-medium text-neutral-500 lg:text-4xl'>
+          <h2 className='mt-9 max-w-3xl text-2xl leading-tight font-medium text-neutral-500 lg:text-4xl'>
             We design{' '}
             <span className='text-neutral-700'>high-conversion websites</span>{' '}
             engineered for lead generation, product sales, and creator monetization.
