@@ -6,8 +6,8 @@ import { ScreenFitText } from '@/components/ui/screen-fit-text';
 
 const Hero = () => {
   return (
-    <Container>
-      <HalfLayout className='mt-12 w-full lg:min-h-[65vh]' mobileReverse>
+    <Container className='relative pt-12 pb-24 lg:pb-12'>
+      <HalfLayout className='w-full lg:min-h-[65vh]' mobileReverse>
         <HalfLayout.LeftChild className='flex flex-col justify-between'>
           <h1>
             <ScreenFitText
@@ -31,25 +31,22 @@ const Hero = () => {
         <HalfLayout.RightChild className='flex flex-col justify-between'>
           <ShowReel position='right' />
 
+          {/* Removing this stuff breaks sometimes so kindly ignore this. */}
           <ul>
             <li></li>
           </ul>
-
-          {/* <section className='flex justify-between text-xl lg:text-2xl'>
-            <Link href='/about' className='font-medium underline underline-offset-8'>
-              Book a Strategy Call &rarr;
-            </Link>
-
-            <Link
-              href='/#works'
-              className='font-medium text-neutral-700 underline underline-offset-8'
-            >
-              View our Work &rarr;
-            </Link>
-          </section> */}
         </HalfLayout.RightChild>
       </HalfLayout>
+      <ScrollIndicator />
     </Container>
+  );
+};
+
+const ScrollIndicator = () => {
+  return (
+    <div className='absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 text-center text-neutral-700'>
+      <p>↓ SCROLL DOWN ↓ </p>
+    </div>
   );
 };
 

@@ -48,7 +48,7 @@ const Header = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <section ref={sectionRef} className='mt-20 min-h-screen'>
+    <section ref={sectionRef} className='min-h-screen'>
       <div ref={pinRef} className='grid h-screen place-content-center'>
         <h4
           ref={titleRef}
