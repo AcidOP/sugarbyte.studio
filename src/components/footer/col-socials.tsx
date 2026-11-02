@@ -5,8 +5,6 @@ import EmailCTA from './copy-email';
 
 import { cn } from '@/lib/utils';
 
-import type { LucideIcon } from 'lucide-react';
-
 interface IProps {
   className?: string;
 }

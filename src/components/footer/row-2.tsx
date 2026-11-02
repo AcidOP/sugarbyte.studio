@@ -49,7 +49,7 @@ const LegalLinks = () => {
 
 const Trademark = () => {
   return (
-    <section className='font-primary flex w-full items-start text-sm tracking-tight lg:text-2xl'>
+    <section className='font-primary flex w-full items-start bg-red-400 text-sm tracking-tight lg:text-2xl'>
       <p className='font-medium'>
         @<span>{new Date().getFullYear()}</span> SUGARBYTE.STUDIO
       </p>
