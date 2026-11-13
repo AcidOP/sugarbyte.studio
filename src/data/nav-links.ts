@@ -4,15 +4,11 @@ export const navLinks = [
     href: '/',
   },
   {
-    name: 'Works',
+    name: 'Selected Works',
     href: '/#works',
   },
   {
-    name: 'Services',
-    href: '/#services',
-  },
-  {
-    name: 'About',
+    name: 'Why Us?',
     href: '/about',
   },
   {
